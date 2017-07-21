@@ -1,5 +1,5 @@
 #! python3
-# excel_worksheet_dictionary.py
+# vrPEC.py
 
 import openpyxl, os
 from openpyxl.utils import get_column_letter
