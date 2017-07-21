@@ -14,9 +14,9 @@ var2 = []
 listRemoved = []
 listNew = []
 
-#open final xlworkbook in cwd folder
+#open final xlworkbook in cwd folder, add arguments to make sure wb.xlsm is loaded for VBA support
 filenameList = os.listdir(os.getcwd())
-wb = openpyxl.load_workbook(filenameList[-1])
+wb = openpyxl.load_workbook(filenameList[-1], read_only=False, keep_vba=True)
 
 #get worksheet objects for first two worksheets
 sheet = wb.worksheets[0]
@@ -62,7 +62,7 @@ for i in range(1, len(listRemoved)+1):
 #create dictionary for pigeons that have been removed from the stock
 supplyRange = {}
 
-for row in range(6, sheet2.max_row - 7):
+for row in range(6, sheet2.max_row - 7):        # let op het aantal rijen dat je aftrekt, net 1 rij meer overhouden dan de laatste rij
     if sheet2['C' + str(row)].value in listRemoved:
         bandnumber = sheet2['C' + str(row)].value
         notes = sheet2['V' + str(row)].value
@@ -75,3 +75,6 @@ for k, v in supplyRange.items():
     sheetRemoved.cell(column=1, row=x, value=k.format(get_column_letter(1)))
     sheetRemoved.cell(column=2, row=x, value=v.format(get_column_letter(2)))
     x += 1
+
+wb.save(sheet.title + " PEC Voorraad.xlsm")
+
