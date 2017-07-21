@@ -1,7 +1,7 @@
 #! python3
 # vrPEC.py
 
-import openpyxl, os
+import openpyxl, os, datetime
 from openpyxl.utils import get_column_letter
 
 os.chdir(r'C:\\Users\Niels\Desktop\PEC VR 2')
@@ -14,7 +14,7 @@ var2 = []
 listRemoved = []
 listNew = []
 
-#open final xlworkbook in cwd folder, add arguments to make sure wb.xlsm is loaded for VBA support
+#open final xlworkbook in cwd folder
 filenameList = os.listdir(os.getcwd())
 wb = openpyxl.load_workbook(filenameList[-1], read_only=False, keep_vba=True)
 
@@ -23,8 +23,8 @@ sheet = wb.worksheets[0]
 sheet2 = wb.worksheets[1]
 
 #get highest rows for first two worksheets
-highestRow = sheet.max_row
-highestRow2 = sheet2.max_row
+highestRow = (sheet.max_row - 33)
+highestRow2 = (sheet2.max_row - 33)
 
 #store data from cell objects in first worksheet in a list
 for i in range(6, highestRow + 1):
@@ -62,10 +62,10 @@ for i in range(1, len(listRemoved)+1):
 #create dictionary for pigeons that have been removed from the stock
 supplyRange = {}
 
-for row in range(6, sheet2.max_row - 7):        # let op het aantal rijen dat je aftrekt, net 1 rij meer overhouden dan de laatste rij
+for row in range(6, sheet2.max_row - 33):        # let op het aantal rijen dat je aftrekt, net 1 rij meer overhouden dan de laatste rij
     if sheet2['C' + str(row)].value in listRemoved:
         bandnumber = sheet2['C' + str(row)].value
-        notes = sheet2['V' + str(row)].value
+        notes = sheet2['Z' + str(row)].value
 
         supplyRange.setdefault(bandnumber, notes)
 
@@ -76,5 +76,8 @@ for k, v in supplyRange.items():
     sheetRemoved.cell(column=2, row=x, value=v.format(get_column_letter(2)))
     x += 1
 
-wb.save(sheet.title + " PEC Voorraad.xlsm")
-
+now = datetime.datetime.now()
+if now.minute < 10:
+    wb.save(sheet.title + " (" + str(now.hour) + "u0" + str(now.minute) + ") PEC Voorraad.xlsm")
+else:
+    wb.save(sheet.title + " (" + str(now.hour) + "u" + str(now.minute) + ") PEC Voorraad.xlsm")
