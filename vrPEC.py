@@ -12,7 +12,7 @@ var2 = []
 
 #make lists to store differences between data sets
 listRemoved = []
-listNew = []
+listAdded = []
 
 #open final xlworkbook in cwd folder
 filenameList = os.listdir(os.getcwd())
@@ -62,7 +62,7 @@ for i in range(1, len(listRemoved)+1):
 #create dictionary for pigeons that have been removed from the stock
 supplyRange = {}
 
-for row in range(6, sheet2.max_row - 33):        # let op het aantal rijen dat je aftrekt, net 1 rij meer overhouden dan de laatste rij
+for row in range(6, sheet2.max_row - 32):        # let op het aantal rijen dat je aftrekt, net 1 rij meer overhouden dan de laatste rij
     if sheet2['C' + str(row)].value in listRemoved:
         bandnumber = sheet2['C' + str(row)].value
         notes = sheet2['Z' + str(row)].value
