@@ -4,7 +4,7 @@
 import openpyxl, os
 from openpyxl.utils import get_column_letter
 
-os.chdir(r'C:\\Users\Niels\Desktop\PEC VR 2')
+os.chdir(r'N:\PEC\Voorraad (boekhouding)\Voorraad PEC (ERP)\(jetreport) Voorraadwijzigingen')
 
 #make lists for data sets
 var1 = []
