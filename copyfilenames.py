@@ -1,5 +1,5 @@
 #! python3
-# copyfilenames.py
+# copyfilenames.py | copies file names from any directory on clipboard and turns it into a sorted unique set
 
 import pyperclip, os, re
 
@@ -8,6 +8,8 @@ filenameList = os.listdir(currentDir)
 ro = re.compile(r'(.*?)(_[a-zA-Z0-9]*)?(\..*)+')
 for i in range(len(filenameList)):
     filenameList[i] = ro.sub(r'\1', filenameList[i])
+filenameList = list(set(filenameList))
+filenameList.sort()
 filenameList = '\r\n'.join(filenameList)
 pyperclip.copy(filenameList)
 
