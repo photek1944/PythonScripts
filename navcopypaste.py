@@ -8,6 +8,7 @@ from win32con import VK_CAPITAL
 
 var = pyperclip.paste()
 var = var.split('\r\n')
+del var[-1]
 
 print('Selecteer de bovenste cel van een kolom in Navision. Na 3 seconden begint het plakken')
 time.sleep(3)
