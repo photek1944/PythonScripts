@@ -5,7 +5,10 @@ import pyperclip
 
 var = pyperclip.paste()
 var = var.split('\r\n')
-del var[-1]
+
+if var[-1] == "":
+    del var[-1]
+    
 var = '|'.join(var)
 pyperclip.copy(var)
 
