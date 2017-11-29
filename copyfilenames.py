@@ -5,6 +5,8 @@ import pyperclip, os, re
 
 currentDir = pyperclip.paste()      
 filenameList = os.listdir(currentDir)
+if filenameList[-1] == 'Thumbs.db':
+    del filenameList[-1]
 ro = re.compile(r'(.*?)(_[a-zA-Z0-9]*)?(\..*)+')
 for i in range(len(filenameList)):
     filenameList[i] = ro.sub(r'\1', filenameList[i])
