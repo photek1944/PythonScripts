@@ -1,5 +1,5 @@
 #! python3
-# windowsfilter.py -- add the pipe " OR " character to the end of any string to create a filterstring for Microsoft Navision
+# windowsfilter.py -- add the pipe " OR " character to the end of any string to create a filterstring for Windows Explorer
 
 import pyperclip
 
