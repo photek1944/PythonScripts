@@ -13,7 +13,6 @@ print(filenameList)
 #http://docs.wand-py.org/en/latest/guide/install.html#install-imagemagick-windows
 #pip install ghostscript
 
-
 # Converting first page into JPG
 with Image(filename="test1.pdf") as img:
      img.save(filename="temp.jpg")
