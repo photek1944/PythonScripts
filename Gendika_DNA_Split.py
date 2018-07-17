@@ -54,8 +54,10 @@ for file in os.listdir(currentDir):
         img = Image.open(file)
         countJPG += 1
         img1 = img.crop((0, 0, 1646, 1165))
+##      img1 = img1.resize((basewidth,hsize)
         img1.save("img%d.jpg" % countJPG)
         countJPG += 1
         img2 = img.crop((0, 1165, 1646, 2331))
+##      img2 = img1.resize((basewidth,hsize)
         img2.save("img%d.jpg" % countJPG)
         os.remove(file)
