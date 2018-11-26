@@ -1,5 +1,9 @@
-#! python 3.7
-#! convert pdf to jpg through pdf2image module
+#! python3
+# pdf2jpg_1444 | convert pdf to jpg through pdf2image module
+# version 1.0 - 26/11/2018
+# creator: NielsC
+
+# INSTALLATION
 
 # 1. install poppler for your windows version -> download zip file from http://blog.alivate.com.au/poppler-windows/
 #    and unzip to C:\Program Files (x86)\Poppler
@@ -9,6 +13,9 @@
 # 3. from cmd "pip install pdf2image"
 
 # 4. Reboot
+
+
+#---------------------------------------------------------------------------------------------------------------------------------#
 
 import os, pyperclip, tempfile
 from pdf2image import convert_from_path
