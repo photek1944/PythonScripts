@@ -51,25 +51,34 @@ for pdf_file in os.listdir(pdf_dir):
 
             #conversion for multiple page pdf
             if len(pages) > 1:
+            
                 for page in pages:
 
                     if page.size[0] > 1444:
+                    
                         page_resized = jpg_resize(page)
+                
                         page_resized.save("%s-page%d.jpg" % (pdf_file,pages.index(page)), "JPEG", optimize=True, quality=95)
+
                     else:
+
                         page.save("%s-page%d.jpg" % (pdf_file,pages.index(page)), "JPEG", optimize=True, quality=95)
                     
             #conversion for single page pdf
             else:
+
                 for page in pages:
 
-                    if page.size[0] > 1444
+                    if page.size[0] > 1444:
+                        
                         page_resized = jpg_resize(page)
 
                     if pdf_file[-4:] == "_ped":
+
                         page_resized.save("%s.jpg" % (pdf_file), "JPEG", optimize=True, quality=95)
 
                     else:
+                    
                         page_resized.save("%s_ped.jpg" % (pdf_file), "JPEG", optimize=True, quality=95)
 
 print('Conversion ready!')
