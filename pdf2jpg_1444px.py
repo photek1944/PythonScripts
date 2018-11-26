@@ -3,6 +3,8 @@
 # version 1.0 - 26/11/2018
 # creator: NielsC
 
+#---------------------------------------------------------------------------------------------------------------------------------#
+
 # INSTALLATION
 
 # 1. install poppler for your windows version -> download zip file from http://blog.alivate.com.au/poppler-windows/
@@ -13,7 +15,6 @@
 # 3. from cmd "pip install pdf2image"
 
 # 4. Reboot
-
 
 #---------------------------------------------------------------------------------------------------------------------------------#
 
