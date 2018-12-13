@@ -1,4 +1,5 @@
 #! python3
+
 # pdf2jpg_1444 | convert pdf to jpg through pdf2image module
 # version 1.0 - 26/11/2018
 # creator: NielsC
@@ -58,11 +59,11 @@ for pdf_file in os.listdir(pdf_dir):
                     
                         page_resized = jpg_resize(page)
                 
-                        page_resized.save("%s-page%d.jpg" % (pdf_file,pages.index(page)), "JPEG", optimize=True, quality=95)
+                        page_resized.save("%s-page%d.jpg" % (pdf_file,pages.index(page)), "JPEG", optimize=True, quality=50)
 
                     else:
 
-                        page.save("%s-page%d.jpg" % (pdf_file,pages.index(page)), "JPEG", optimize=True, quality=95)
+                        page.save("%s-page%d.jpg" % (pdf_file,pages.index(page)), "JPEG", optimize=True, quality=50)
                     
             #conversion for single page pdf
             else:
@@ -75,10 +76,10 @@ for pdf_file in os.listdir(pdf_dir):
 
                     if pdf_file[-4:] == "_ped":
 
-                        page_resized.save("%s.jpg" % (pdf_file), "JPEG", optimize=True, quality=95)
+                        page_resized.save("%s.jpg" % (pdf_file), "JPEG", optimize=True, quality=50)
 
                     else:
                     
-                        page_resized.save("%s_ped.jpg" % (pdf_file), "JPEG", optimize=True, quality=95)
+                        page_resized.save("%s_ped.jpg" % (pdf_file), "JPEG", optimize=True, quality=50)
 
 print('Conversion ready!')
